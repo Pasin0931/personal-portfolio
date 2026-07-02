@@ -34,7 +34,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       <body className="min-h-full flex flex-col">
         <div className="flex flex-rows justify-between items-center bg-black h-18 w-screen">
 
-          <p className="pl-8 text-white text-2xl">Pasin's Portfolio</p>
+          <button className="pl-8 text-white text-2xl px-3 py-2" onClick={() => router.push("/")}>Pasin's Portfolio</button>
 
           <div className="flex flex-rows items-center justify-center pr-10 gap-3 text-xl">
             <button className="text-white px-3 py-2" onClick={() => router.push("/")}>Home</button>
