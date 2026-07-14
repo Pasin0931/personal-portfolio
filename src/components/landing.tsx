@@ -9,27 +9,23 @@ import Image from "next/image"
 
 export default function LandingPage() {
     return (
-        <div className="flex flex-col items-center justify-center pt-8">
-
-            <div className="flex flex-col items-center justify-center w-281">
-                <div className="flex flex-rows items-center justify-center h-100 gap-5">
+        <div className="flex flex-col items-center justify-center pt-10">
+            <Card className="flex flex-row justify-center items-center w-auto p-6 px-12 rounded-4xl">
+                <div className="w-43 h-43 rounded-full overflow-hidden border border-black mr-5">
                     <Image
-                        alt="me"
                         src="/ite_x/itex.jpg"
-                        width={100}
-                        height={100}
-                        className="h-full w-auto border border-5 border-black rounded-xl"
+                        alt="my icon"
+                        width={500}
+                        height={500}
+                        className="w-full h-full object-cover"
                     />
-                    <Card className="flex flex-cols justify-center items-center p-10 h-full border-black border-5 w-200">
-                        Hello world
-                    </Card>
                 </div>
-
-                <Card className="flex flex-col items-center justify-center p-10 w-full h-34 border-black border-5 mt-5">
-                    Hello world
-                </Card>
-            </div>
-
+                <div className="flex flex-col justify-center items-start">
+                    <h1 className="text-5xl font-bold pb-2">Pasin Makcharoen</h1>
+                    <h2 className="text-[20px]">Software and Knowledge Engineering</h2>
+                    <h2 className="text-[20px]">Kasetsart University</h2>
+                </div>
+            </Card>
         </div>
     )
 }

@@ -32,7 +32,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="flex flex-rows justify-between items-center bg-black h-18 w-screen">
+        <div className="flex flex-rows justify-between items-center bg-[#262626] h-18 w-screen">
 
           <button className="pl-8 text-white text-2xl px-3 py-2" onClick={() => router.push("/")}>Pasin's Portfolio</button>
 
