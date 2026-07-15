@@ -35,8 +35,8 @@ export default function FooterSection() {
                     <Image
                         src="/gh.png"
                         alt="Github"
-                        width={30}
-                        height={30}
+                        width={18}
+                        height={18}
                         loading="eager"
                     />
                     <button onClick={() => window.open("https://github.com/Pasin0931", "_blank")} className="hover:underline cursor-pointer">pasin0931</button>
