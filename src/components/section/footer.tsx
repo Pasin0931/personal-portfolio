@@ -26,6 +26,7 @@ export default function FooterSection() {
                         alt="Instagram"
                         width={18}
                         height={18}
+                        loading="eager"
                     />
                     <button onClick={() => window.open("https://instagram.com/pasin.mck", "_blank")} className="hover:underline cursor-pointer">pasin.mck</button>
                 </div>
@@ -36,6 +37,7 @@ export default function FooterSection() {
                         alt="Github"
                         width={30}
                         height={30}
+                        loading="eager"
                     />
                     <button onClick={() => window.open("https://github.com/Pasin0931", "_blank")} className="hover:underline cursor-pointer">pasin0931</button>
                 </div>
