@@ -1,9 +1,9 @@
-import Contact from "@/components/contact"
+import CertificatesPage from "@/components/cer"
 
 export default function ContactPage() {
     return (
         <div>
-            <Contact />
+            <CertificatesPage />
         </div>
     )
 }

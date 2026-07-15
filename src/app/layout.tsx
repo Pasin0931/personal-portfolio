@@ -36,13 +36,13 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className="min-h-full flex flex-col">
         <header className="flex flex-rows justify-between items-center bg-[#262626] h-18 w-full">
 
-          <button className="pl-8 text-white text-2xl px-3 py-2" onClick={() => router.push("/")}>Pasin's Portfolio</button>
+          <button className="pl-8 text-white text-2xl px-3 py-2 cursor-pointer" onClick={() => router.push("/")}>Pasin's Portfolio</button>
 
           <div className="flex flex-rows items-center justify-center pr-10 gap-3 text-xl">
-            <button className="text-white px-3 py-2" onClick={() => router.push("/")}>Home</button>
-            <button className="text-white px-3 py-2" onClick={() => router.push("/works")}>Works</button>
-            <button className="text-white px-3 py-2" onClick={() => router.push("/aboutme")}>About me</button>
-            <button className="text-white px-3 py-2" onClick={() => router.push("/contact")}>Contact</button>
+            <button className="text-white px-3 py-2 cursor-pointer" onClick={() => router.push("/")}>Home</button>
+            <button className="text-white px-3 py-2 cursor-pointer" onClick={() => router.push("/works")}>Works</button>
+            <button className="text-white px-3 py-2 cursor-pointer" onClick={() => router.push("/certificates")}>Certificates</button>
+            <button className="text-white px-3 py-2 cursor-pointer" onClick={() => router.push("/aboutme")}>About me</button>
           </div>
 
         </header>

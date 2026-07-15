@@ -1,9 +1,9 @@
 "use client"
 
-export default function Contact() {
+export default function CertificatesPage() {
     return (
         <div className="flex flex-cols items-center justify-center">
-            Contact Me
+            Certificates
         </div>
     )
 }

@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { Card } from "@/components/ui/card"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const awards_ = [
     {
@@ -115,99 +115,101 @@ const awards_ = [
 ]
 
 export default function AwardsSection() {
-    const [isOpenning, setIsOpenning] = useState("")
+    const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setLightboxSrc(null)
+        }
+        window.addEventListener("keydown", handleKey)
+        return () => window.removeEventListener("keydown", handleKey)
+    }, [])
 
     return (
-        <div className="flex flex-col items-center justify-center gap-8 mt-8 mb-8">
-            <h1 className="text-white font-bold text-3xl pt-3">Awards</h1>
-            <div className="bg-[#262626] h-1 w-420 rounded rounded-lg"></div>
-            {awards_.map((this_award) => (
-                <Card key={this_award.id} className="flex flex-row justify-between items-center p-6 px-8 w-400 overflow-hidden h-50">
-                    <div>
-                        <h2 className="text-2xl font-bold text-white">
-                            {this_award.project_name}
-                        </h2>
+        <div>
+            <div className="flex flex-col items-center justify-center gap-8 mt-8 mb-8">
+                <h1 className="text-white font-bold text-3xl pt-3">Awards</h1>
+                <div className="bg-[#262626] h-1 w-420 rounded rounded-lg"></div>
+                {awards_.map((this_award) => (
+                    <Card key={this_award.id} className="flex flex-row justify-between items-center p-6 px-8 w-400 overflow-hidden h-50">
+                        <div>
+                            <h2 className="text-2xl font-bold text-white">
+                                {this_award.project_name}
+                            </h2>
 
-                        <div className="mt-2 mb-2">
-                            <span className="font-semibold text-white">
-                                {this_award.awa}
-                            </span>
-                            <p className="text-white">{this_award.competition}</p>
+                            <div className="mt-2 mb-2">
+                                <span className="font-semibold text-white">
+                                    {this_award.awa}
+                                </span>
+                                <p className="text-white">{this_award.competition}</p>
+                            </div>
+
+                            <p className=" text-white">
+                                {this_award.level} • {this_award.location} • {this_award.date}
+                            </p>
+
+                            <p className="mt-4 text-white">
+                                {this_award.content}
+                            </p>
                         </div>
+                        <div className="flex flex-row items-center justify-center gap-4">
+                            {[this_award.pic1, this_award.pic2, this_award.pic3].map((pic, idx) => (
+                                <motion.button
+                                    key={idx}
+                                    className="w-40 h-50 mt-30 cursor-pointer"
+                                    whileHover={{ y: -5 }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                                    onClick={() => setLightboxSrc(pic)}
+                                >
+                                    <Image
+                                        src={pic}
+                                        alt="pic"
+                                        width={500}
+                                        height={500}
+                                        className="w-full h-full object-cover rounded rounded-lg"
+                                        loading="eager"
+                                    />
+                                </motion.button>
+                            ))}
+                        </div>
+                    </Card>
+                ))}
+            </div>
 
-                        <p className=" text-white">
-                            {this_award.level} • {this_award.location} • {this_award.date}
-                        </p>
-
-                        <p className="mt-4 text-white">
-                            {this_award.content}
-                        </p>
-                    </div>
-                    <div className="flex flex-row items-center justify-center gap-4">
-                        <motion.button
-                            className="w-40 h-50 mt-30 cursor-pointer"
-                            whileHover={{
-                                y: -5,
-                            }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 10,
-                            }}
+            <AnimatePresence>
+                {lightboxSrc && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 cursor-pointer"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setLightboxSrc(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.85, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.85, opacity: 0 }}
+                            transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                            className="relative max-w-[90vw] max-h-[90vh]"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <Image
-                                src={this_award.pic1}
-                                alt="pic1"
-                                width={500}
-                                height={500}
-                                className="w-full h-full object-cover rounded rounded-lg"
-                                loading="eager"
+                                src={lightboxSrc}
+                                alt="full size"
+                                width={1200}
+                                height={1200}
+                                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
                             />
-                        </motion.button>
-                        <motion.button
-                            className="w-40 h-50 mt-30 cursor-pointer"
-                            whileHover={{
-                                y: -5,
-                            }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 10,
-                            }}
-                        >
-                            <Image
-                                src={this_award.pic2}
-                                alt="pic2"
-                                width={500}
-                                height={500}
-                                className="w-full h-full object-cover rounded rounded-lg"
-                                loading="eager"
-                            />
-                        </motion.button>
-                        <motion.button
-                            className="w-40 h-50 mt-30 cursor-pointer"
-                            whileHover={{
-                                y: -5,
-                            }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 10,
-                            }}
-                        >
-                            <Image
-                                src={this_award.pic3}
-                                alt="pic3"
-                                width={500}
-                                height={500}
-                                className="w-full h-full object-cover rounded rounded-lg"
-                                loading="eager"
-                            />
-                        </motion.button>
-                    </div>
-                </Card>
-            ))
-            }
-        </div >
-    );
+                            <button
+                                onClick={() => setLightboxSrc(null)}
+                                className="absolute top-3 right-3 text-white bg-black/50 hover:bg-black/80 rounded-full w-8 h-8 flex items-center justify-center text-lg leading-none"
+                            >
+                                ×
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    )
 }
