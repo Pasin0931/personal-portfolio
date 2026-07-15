@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card"
 
+import Image from "next/image"
+
 const awards_ = [
     {
         id: "1",
@@ -9,7 +11,10 @@ const awards_ = [
         level: "International",
         location: "Kuala Lumpur Convention Centre, Malaysia",
         date: "May 16-17, 2024",
-        content: "Received the Gold Award at ITEX 2024 in the World Young Inventors Exhibition (WYIE) for the Smart Medicine Box project."
+        content: "Received the Gold Award at ITEX 2024 in the World Young Inventors Exhibition (WYIE) for the Smart Medicine Box project.",
+        pic1: "/ite_x/1.jpg",
+        pic2: "/ite_x/2.jpg",
+        pic3: "/ite_x/3.png",
     },
     {
         id: "2",
@@ -19,7 +24,10 @@ const awards_ = [
         level: "National",
         location: "BITEC Bangna, Thailand",
         date: "February 2-6, 2024",
-        content: "Received the Silver Award at Thailand New Gen Inventors Award 2024 for the Smart Medicine Box project."
+        content: "Received the Silver Award at Thailand New Gen Inventors Award 2024 for the Smart Medicine Box project.",
+        pic1: "/inew/1.jpg",
+        pic2: "/inew/2.jpg",
+        pic3: "/inew/3.png",
     },
     {
         id: "3",
@@ -29,27 +37,36 @@ const awards_ = [
         level: "National",
         location: "The Hub - Zeer Rangsit",
         date: "August 3-4, 2024",
-        content: "Developed a semi-automatic confection depositor and received the Gold Award in the Innovative Robot category."
+        content: "Developed a semi-automatic confection depositor and received the Gold Award in the Innovative Robot category.",
+        pic1: "/wrg/1.png",
+        pic2: "/wrg/2.jpg",
+        pic3: "/wrg/3.png",
     },
     {
         id: "4",
-        project_name: "Semi-Automatic Confection Depositor and Moisture Removal System (I-NEW GEN version)",
+        project_name: "Semi-Automatic Confection Depositor with Moisture Removal System (I-NEW GEN version)",
         awa: "1st place Trophy, and Gold Medal",
         competition: "Thailand New Gen Inventors Award 2025 (I-NEW GEN)",
         level: "National",
         location: "BITEC Bangna, Thailand",
         date: "Feburary 2-6, 2025 ",
         content: "An upgraded version of the previous project featuring an integrated moisture removal system to improve the quality and consistency of the confection production process.",
+        pic1: "/voc/1.jpg",
+        pic2: "/voc/2.jpg",
+        pic3: "/voc/3.jpg",
     },
     {
         id: "5",
-        project_name: "Intermediate Robot",
+        project_name: "หุ่นยนตร์ระดับกลาง สพฐ.",
         awa: "Gold Award (1st Runner-up)",
         competition: "Student Arts and Crafts Competition No.71",
         level: "District",
         location: "Suankularb Wittayalai Rangsit School",
         date: "November 21-22, 2023",
-        content: "Designed and programmed an autonomous robot for a randomized challenge, achieving 1st Runner-up."
+        content: "Designed and programmed an autonomous robot for a randomized challenge, achieving 1st Runner-up.",
+        pic1: "/class-r/1.jpg",
+        pic2: "/class-r/2.jpg",
+        pic3: "/class-r/3.png",
     },
     {
         id: "6",
@@ -59,7 +76,10 @@ const awards_ = [
         level: "National",
         location: "Thai-Nichi Institute of Technology",
         date: "August 30 - September 1, 2024",
-        content: "Developed a ROS-based robot capable of separating three types of objects, earning the Bronze Award."
+        content: "Developed a ROS-based robot capable of separating three types of objects, earning the Bronze Award.",
+        pic1: "/sorting/1.jpg",
+        pic2: "/sorting/2.jpg",
+        pic3: "/sorting/3.png",
     },
     {
         id: "7",
@@ -69,7 +89,23 @@ const awards_ = [
         level: "National",
         location: "The Hub - Zeer Rangsit",
         date: "November 29 - December 1, 2024",
-        content: "Presented the latest version of the Smart Medicine Box with enhanced functionality and received 2nd Runner-up."
+        content: "Presented the latest version of the Smart Medicine Box with enhanced functionality and received 2nd Runner-up.",
+        pic1: "/mrc/a.png",
+        pic2: "/mrc/b.jpg",
+        pic3: "/mrc/c.png",
+    },
+    {
+        id: "8",
+        project_name: "AGV maze robot",
+        awa: "2nd Runner-up Trophy",
+        competition: "Thailand Robot & Coding Challenge 2025",
+        level: "National",
+        location: "Kasetsart University",
+        date: "May 11, 2025",
+        content: "Assemble the robot given by the contest, then program the robot to solve the romdom maze pattern.",
+        pic1: "/agv/1.jpg",
+        pic2: "/agv/2.jpg",
+        pic3: "/agv/3.jpg",
     },
 ]
 
@@ -77,22 +113,22 @@ export default function AwardsSection() {
     return (
         <div className="flex flex-col items-center justify-center gap-8 mt-8 mb-8">
             <h1 className="text-white font-bold text-3xl pt-3">Awards</h1>
-            <div className="bg-[#212121] h-1 w-420 rounded rounded-lg"></div>
+            <div className="bg-[#262626] h-1 w-420 rounded rounded-lg"></div>
             {awards_.map((this_award) => (
-                <Card key={this_award.id} className="flex flex-row justify-between items-center p-6 w-400">
+                <Card key={this_award.id} className="flex flex-row justify-between items-center p-6 px-8 w-400 overflow-hidden h-50">
                     <div>
                         <h2 className="text-2xl font-bold text-white">
                             {this_award.project_name}
                         </h2>
 
-                        <p className="mt-2 mb-2">
+                        <div className="mt-2 mb-2">
                             <span className="font-semibold text-white">
                                 {this_award.awa}
                             </span>
                             <p className="text-white">{this_award.competition}</p>
-                        </p>
+                        </div>
 
-                        <p className="text-gray-500 text-white">
+                        <p className=" text-white">
                             {this_award.level} • {this_award.location} • {this_award.date}
                         </p>
 
@@ -100,9 +136,41 @@ export default function AwardsSection() {
                             {this_award.content}
                         </p>
                     </div>
-                    <div>Hello</div>
+                    <div className="flex flex-row items-center justify-center gap-4">
+                        <button className="w-40 h-50 mt-30">
+                            <Image
+                                src={this_award.pic1}
+                                alt="pic1"
+                                width={500}
+                                height={500}
+                                className="w-full h-full object-cover"
+                                loading="eager"
+                            />
+                        </button>
+                        <button className="w-40 h-50 mt-30">
+                            <Image
+                                src={this_award.pic2}
+                                alt="pic2"
+                                width={500}
+                                height={500}
+                                className="w-full h-full object-cover"
+                                loading="eager"
+                            />
+                        </button>
+                        <button className="w-40 h-50 mt-30">
+                            <Image
+                                src={this_award.pic3}
+                                alt="pic3"
+                                width={500}
+                                height={500}
+                                className="w-full h-full object-cover"
+                                loading="eager"
+                            />
+                        </button>
+                    </div>
                 </Card>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 }

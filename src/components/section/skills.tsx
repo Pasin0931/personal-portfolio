@@ -24,7 +24,7 @@ const hard_skills = [
     "Robotics & Automation Systems",
     "C++",
     "C",
-    "Go",
+    "Golang",
     "Java",
     "JavaScript",
     "AI & Machine Learning",
