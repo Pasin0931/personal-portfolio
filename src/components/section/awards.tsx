@@ -1,6 +1,11 @@
+"use client"
+
+import { useState } from "react"
+
 import { Card } from "@/components/ui/card"
 
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 const awards_ = [
     {
@@ -110,6 +115,8 @@ const awards_ = [
 ]
 
 export default function AwardsSection() {
+    const [isOpenning, setIsOpenning] = useState("")
+
     return (
         <div className="flex flex-col items-center justify-center gap-8 mt-8 mb-8">
             <h1 className="text-white font-bold text-3xl pt-3">Awards</h1>
@@ -137,36 +144,66 @@ export default function AwardsSection() {
                         </p>
                     </div>
                     <div className="flex flex-row items-center justify-center gap-4">
-                        <button className="w-40 h-50 mt-30">
+                        <motion.button
+                            className="w-40 h-50 mt-30 cursor-pointer"
+                            whileHover={{
+                                y: -5,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 10,
+                            }}
+                        >
                             <Image
                                 src={this_award.pic1}
                                 alt="pic1"
                                 width={500}
                                 height={500}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover rounded rounded-lg"
                                 loading="eager"
                             />
-                        </button>
-                        <button className="w-40 h-50 mt-30">
+                        </motion.button>
+                        <motion.button
+                            className="w-40 h-50 mt-30 cursor-pointer"
+                            whileHover={{
+                                y: -5,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 10,
+                            }}
+                        >
                             <Image
                                 src={this_award.pic2}
                                 alt="pic2"
                                 width={500}
                                 height={500}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover rounded rounded-lg"
                                 loading="eager"
                             />
-                        </button>
-                        <button className="w-40 h-50 mt-30">
+                        </motion.button>
+                        <motion.button
+                            className="w-40 h-50 mt-30 cursor-pointer"
+                            whileHover={{
+                                y: -5,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 10,
+                            }}
+                        >
                             <Image
                                 src={this_award.pic3}
                                 alt="pic3"
                                 width={500}
                                 height={500}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover rounded rounded-lg"
                                 loading="eager"
                             />
-                        </button>
+                        </motion.button>
                     </div>
                 </Card>
             ))
