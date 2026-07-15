@@ -7,11 +7,11 @@ import Image from "next/image"
 
 // const border_ = 5;
 
-export default function LandingPage() {
+export default function HeroSection() {
     return (
         <div className="flex flex-col items-center justify-center pt-10">
-            <Card className="flex flex-row justify-center items-center w-auto p-6 px-12 rounded-4xl">
-                <div className="w-43 h-43 rounded-full overflow-hidden border border-black mr-5">
+            <Card className="flex flex-row justify-center items-center w-auto p-8 rounded-xl pr-80">
+                <div className="w-32 h-32 rounded-full overflow-hidden border border-black mr-5">
                     <Image
                         src="/ite_x/itex.jpg"
                         alt="my icon"
@@ -21,9 +21,8 @@ export default function LandingPage() {
                     />
                 </div>
                 <div className="flex flex-col justify-center items-start">
-                    <h1 className="text-5xl font-bold pb-2">Pasin Makcharoen</h1>
-                    <h2 className="text-[20px]">Software and Knowledge Engineering</h2>
-                    <h2 className="text-[20px]">Kasetsart University</h2>
+                    <h1 className="text-4xl font-bold pb-2 text-white">Pasin Makcharoen</h1>
+                    <h2 className="text-[20px] text-white">Software and Knowledge Engineering, Kasetsart University</h2>
                 </div>
             </Card>
         </div>

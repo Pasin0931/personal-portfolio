@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react"
 
-import LandingPage from "@/components/landing"
-import FooterSection from "@/components/section/footer"
+import HeroSection from "@/components/section/hero"
 import AwardsSection from "@/components/section/awards"
+
+import SkillsSection from "@/components/section/skills"
 
 export default function Home() {
   return (
     <div>
-      <LandingPage />
+      <HeroSection />
+      <SkillsSection />
       <AwardsSection />
-      <FooterSection />
     </div>
   )
 }
