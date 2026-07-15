@@ -27,9 +27,19 @@ export default function FooterSection() {
                         width={18}
                         height={18}
                     />
-                    <button onClick={() => window.open("https://instagram.com/pasin.mck", "_blank")}  className="hover:underline cursor-pointer">pasin.mck</button>
+                    <button onClick={() => window.open("https://instagram.com/pasin.mck", "_blank")} className="hover:underline cursor-pointer">pasin.mck</button>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <Image
+                        src="/gh.png"
+                        alt="Github"
+                        width={30}
+                        height={30}
+                    />
+                    <button onClick={() => window.open("https://github.com/Pasin0931", "_blank")} className="hover:underline cursor-pointer">pasin0931</button>
+                </div>
             </div>
-        </div>
         </footer >
     )
 }
